@@ -27,7 +27,7 @@
     <a href="#contacts" class="contacts-link">Контакти</a>
     <a href="#booking" class="btn btn-outline">Обрати послугу</a>
   </div>
-  <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+  <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </header>
@@ -269,7 +269,7 @@
         <span class="split-tag right">Після</span>
       </div>
       <div class="review-body">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="Оцінка 5 з 5 зірок">★★★★★</div>
         <p>«Мій британець ненавидів купання, поки не потрапив до БЛЕКУСЕМ. Тепер сам біжить у переноску в день візиту!»</p>
         <span class="review-author">— Юлія, клієнтка</span>
       </div>
@@ -284,7 +284,7 @@
         <span class="split-tag right">Після</span>
       </div>
       <div class="review-body">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="Оцінка 5 з 5 зірок">★★★★★</div>
         <p>«Ковтуни, з якими не могли впоратись роками, зняли за одну процедуру — акуратно і без стресу для кота.»</p>
         <span class="review-author">— Дмитро, клієнт</span>
       </div>
@@ -299,7 +299,7 @@
         <span class="split-tag right">Після</span>
       </div>
       <div class="review-body">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="Оцінка 5 з 5 зірок">★★★★★</div>
         <p>«Найкращий SPA-догляд у місті. Хутро м'яке ще два тижні після візиту. Записуюсь щомісяця.»</p>
         <span class="review-author">— Олена, клієнтка</span>
       </div>
@@ -359,19 +359,19 @@
   <form class="booking-form" id="bookingForm" novalidate>
     <div class="form-row">
       <label for="name">Ім'я <span class="req">*</span></label>
-      <input type="text" id="name" name="name" placeholder="Ваше ім'я" required>
+      <input type="text" id="name" name="name" placeholder="Ваше ім'я" autocomplete="name" required aria-required="true" aria-describedby="nameError">
       <span class="error-msg" id="nameError"></span>
     </div>
 
     <div class="form-row">
       <label for="phone">Телефон або Telegram <span class="req">*</span></label>
-      <input type="text" id="phone" name="phone" placeholder="+380 XX XXX XX XX або @username" required>
+      <input type="text" id="phone" name="phone" placeholder="+380 XX XXX XX XX або @username" autocomplete="tel" inputmode="tel" required aria-required="true" aria-describedby="phoneError">
       <span class="error-msg" id="phoneError"></span>
     </div>
 
     <div class="form-row">
       <label for="service">Послуга <span class="req">*</span></label>
-      <select id="service" name="service" required>
+      <select id="service" name="service" required aria-required="true" aria-describedby="serviceError">
         <option value="" disabled selected>Оберіть послугу</option>
         <option value="Купання та сушка">Купання та сушка — від 350₴</option>
         <option value="Стрижки">Стрижки — від 400₴</option>
@@ -385,7 +385,7 @@
 
     <div class="form-row">
       <label for="breed">Порода тварини</label>
-      <input type="text" id="breed" name="breed" placeholder="Напр. британська короткошерста">
+      <input type="text" id="breed" name="breed" placeholder="Напр. британська короткошерста" autocomplete="off">
     </div>
 
     <div class="form-row">
@@ -394,7 +394,7 @@
     </div>
 
     <button type="submit" class="btn btn-gold btn-lg btn-block">Надіслати заявку</button>
-    <p class="form-note" id="formNote"></p>
+    <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
   </form>
 </section>
 

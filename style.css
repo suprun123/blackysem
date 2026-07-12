@@ -58,7 +58,7 @@ em { font-style: italic; font-weight: 500; }
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 12px;
-  color: var(--gold);
+  color: var(--maroon-mid);
   font-weight: 500;
   margin: 0 0 20px;
 }
@@ -70,6 +70,7 @@ em { font-style: italic; font-weight: 500; }
   background: var(--gold);
 }
 
+/* gold text only passes contrast on the dark maroon sections */
 .eyebrow-light { color: var(--gold); }
 
 .section-head {

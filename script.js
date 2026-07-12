@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (serviceName && serviceSelect) {
         serviceSelect.value = serviceName;
       }
+      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
@@ -69,9 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isValid) {
       row.classList.remove('invalid');
       error.textContent = '';
+      input.setAttribute('aria-invalid', 'false');
     } else {
       row.classList.add('invalid');
       error.textContent = message;
+      input.setAttribute('aria-invalid', 'true');
     }
     return isValid;
   }
