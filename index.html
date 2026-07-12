@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>БЛЕКУСЕМ — грумінг-салон у Хмельницькому</title>
+<meta name="description" content="БЛЕКУСЕМ — преміальний грумінг-салон для котів і собак у Хмельницькому. Купання, стрижки, SPA-догляд. Запис онлайн.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="top">
+  <nav class="nav-left">
+    <a href="#services">Послуги</a>
+    <a href="#about">Про нас</a>
+    <a href="#reviews">Відгуки</a>
+  </nav>
+  <a href="#top" class="logo">
+    <span class="logo-mark" aria-hidden="true">🐾</span>
+    <span class="logo-text">БЛЕКУСЕМ</span>
+  </a>
+  <div class="nav-right">
+    <a href="#contacts" class="contacts-link">Контакти</a>
+    <a href="#booking" class="btn btn-outline">Обрати послугу</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Послуги</a>
+  <a href="#about">Про нас</a>
+  <a href="#reviews">Відгуки</a>
+  <a href="#contacts">Контакти</a>
+  <a href="#booking" class="btn btn-gold">Обрати послугу</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <img class="hero-bg" src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?q=80&w=2000&auto=format&fit=crop" alt="Чорний кіт відпочиває після грумінгу">
+  <div class="hero-overlay"></div>
+  <div class="hero-frame" aria-hidden="true">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+  </div>
+
+  <div class="hero-top">
+    <p class="eyebrow eyebrow-light">(Грумінг-салон · Хмельницький)</p>
+    <h1 class="hero-title">БЛЕК<em>усем</em></h1>
+    <p class="hero-sub">Турбота, гідна вашого улюбленця — від кулончика на нашому логотипі до останньої пасемки хутра</p>
+  </div>
+
+  <div class="hero-bottom">
+    <ul class="hero-col hero-col-left">
+      <li>Індивідуальний підхід до кожної тварини</li>
+      <li>Без клітки, без седації, без поспіху</li>
+    </ul>
+    <div class="hero-col hero-col-center">
+      <a href="#booking" class="btn btn-gold btn-lg">Записатись на прийом</a>
+    </div>
+    <ul class="hero-col hero-col-right">
+      <li>Сертифіковані грумери з досвідом 8+ років</li>
+      <li>Гіпоалергенна косметика преміум-класу</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ NUMBERS ============ -->
+<section class="numbers">
+  <div class="number-item">
+    <span class="number-value">8</span>
+    <span class="number-label">років досвіду</span>
+  </div>
+  <div class="number-item">
+    <span class="number-value">2 400+</span>
+    <span class="number-label">задоволених клієнтів</span>
+  </div>
+  <div class="number-item">
+    <span class="number-value">97%</span>
+    <span class="number-label">рекомендують друзям</span>
+  </div>
+  <div class="number-item">
+    <span class="number-value">6</span>
+    <span class="number-label">видів послуг</span>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="section-head">
+    <p class="eyebrow"><span></span>Послуги та прайс<span></span></p>
+    <h2 class="section-title">Меню догляду <em>для вашого улюбленця</em></h2>
+  </div>
+
+  <div class="services-grid">
+
+    <article class="service-card" data-service="Купання та сушка">
+      <span class="service-num">01</span>
+      <h3>Купання та сушка</h3>
+      <p>Ванна з термальною водою, стайлінг-сушка та розчісування — база бездоганного вигляду.</p>
+      <div class="service-foot">
+        <span class="service-price">від 350₴</span>
+        <button class="service-arrow" aria-label="Записатись на купання та сушку">→</button>
+      </div>
+    </article>
+
+    <article class="service-card" data-service="Стрижки">
+      <span class="service-num">02</span>
+      <h3>Стрижки</h3>
+      <p>Породна або авторська стрижка з урахуванням структури хутра і побажань власника.</p>
+      <div class="service-foot">
+        <span class="service-price">від 400₴</span>
+        <button class="service-arrow" aria-label="Записатись на стрижку">→</button>
+      </div>
+    </article>
+
+    <article class="service-card service-card--dark" data-service="SPA-догляд">
+      <span class="service-num">03</span>
+      <h3>SPA-догляд</h3>
+      <p>Преміальний ритуал: маска для шерсті, масаж, ароматерапія та фінішний блиск.</p>
+      <div class="service-foot">
+        <span class="service-price">від 500₴</span>
+        <button class="service-arrow" aria-label="Записатись на SPA-догляд">→</button>
+      </div>
+    </article>
+
+    <article class="service-card" data-service="Вичісування ковтунів">
+      <span class="service-num">04</span>
+      <h3>Вичісування ковтунів</h3>
+      <p>Дбайливе розплутування без болю та стресу для тварини, спеціальними інструментами.</p>
+      <div class="service-foot">
+        <span class="service-price">від 300₴</span>
+        <button class="service-arrow" aria-label="Записатись на вичісування ковтунів">→</button>
+      </div>
+    </article>
+
+    <article class="service-card" data-service="Лапікюр">
+      <span class="service-num">05</span>
+      <h3>Лапікюр</h3>
+      <p>Стрижка кігтів, обробка подушечок пом'якшуючим бальзамом, догляд між пальчиками.</p>
+      <div class="service-foot">
+        <span class="service-price">від 150₴</span>
+        <button class="service-arrow" aria-label="Записатись на лапікюр">→</button>
+      </div>
+    </article>
+
+    <article class="service-card" data-service="Експрес линька">
+      <span class="service-num">06</span>
+      <h3>Експрес линька</h3>
+      <p>Глибоке видалення підшерстя фурмінатором — менше хутра на дивані вдома.</p>
+      <div class="service-foot">
+        <span class="service-price">від 400₴</span>
+        <button class="service-arrow" aria-label="Записатись на експрес линьку">→</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="quote">
+  <p class="quote-text">«Ми не просто стрижемо хутро — ми повертаємо тваринам відчуття легкості, а власникам — спокій, що їхній улюбленець в надійних лапах»</p>
+  <span class="quote-divider" aria-hidden="true"></span>
+  <p class="quote-author">Марина Ковальчук, засновниця БЛЕКУСЕМ</p>
+</section>
+
+<!-- ============ ABOUT / INSTAGRAM ============ -->
+<section class="about" id="about">
+  <div class="section-head">
+    <p class="eyebrow"><span></span>Instagram · Про нас<span></span></p>
+    <h2 class="section-title">Живемо <em>у деталях</em></h2>
+  </div>
+
+  <div class="mosaic">
+    <div class="mosaic-item mosaic-big">
+      <img src="https://images.unsplash.com/photo-1516750105099-4b8a83e217ee?q=80&w=1200&auto=format&fit=crop" alt="Кіт на грумінг-столі">
+      <div class="mosaic-overlay"><span>Спокій під час процедури</span></div>
+    </div>
+    <div class="mosaic-item">
+      <img src="https://images.unsplash.com/photo-1573824267543-5c4e5b6c0a29?q=80&w=800&auto=format&fit=crop" alt="Купання кота">
+      <div class="mosaic-overlay"><span>Тепла ванна з термальною водою</span></div>
+    </div>
+    <div class="mosaic-item">
+      <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=800&auto=format&fit=crop" alt="Інструменти для грумінгу">
+      <div class="mosaic-overlay"><span>Професійні інструменти</span></div>
+    </div>
+    <div class="mosaic-item">
+      <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=800&auto=format&fit=crop" alt="Кіт після стрижки">
+      <div class="mosaic-overlay"><span>Бездоганний результат</span></div>
+    </div>
+    <div class="mosaic-item mosaic-wide">
+      <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?q=80&w=1200&auto=format&fit=crop" alt="Грумінг-салон інтер'єр">
+      <div class="mosaic-overlay"><span>Затишний простір салону</span></div>
+    </div>
+    <div class="mosaic-item">
+      <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=800&auto=format&fit=crop" alt="Чорний кіт портрет">
+      <div class="mosaic-overlay"><span>Наш улюблений маскот</span></div>
+    </div>
+  </div>
+
+  <div class="philosophy">
+    <div class="philosophy-text">
+      <p class="eyebrow eyebrow-light"><span></span>Наша філософія<span></span></p>
+      <h2 class="section-title section-title--light">Кожна тварина заслуговує <em>дбайливих лап</em></h2>
+      <p class="philosophy-body">БЛЕКУСЕМ народився з любові до однієї чорної кішки з рожевим бантиком, яка й досі сидить на нашому кулоні-логотипі. Ми будуємо салон, де немає клітин і поспіху — тільки терпіння, професійна косметика та щира турбота про кожного пухнастого гостя.</p>
+      <div class="social-links">
+        <a href="#" class="social-link">Instagram</a>
+        <a href="#" class="social-link">Telegram</a>
+        <a href="#" class="social-link">TikTok</a>
+      </div>
+    </div>
+    <div class="philosophy-photo">
+      <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?q=80&w=1000&auto=format&fit=crop" alt="Грумер доглядає за котом">
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="team">
+  <div class="section-head">
+    <p class="eyebrow"><span></span>Наші майстри<span></span></p>
+    <h2 class="section-title">Руки, яким <em>довіряють</em></h2>
+  </div>
+
+  <div class="team-grid">
+    <article class="team-card">
+      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop" alt="Майстриня грумінгу Марина">
+      <div class="team-overlay">
+        <h3>Марина Ковальчук</h3>
+        <p>Засновниця · груммер-стиліст</p>
+      </div>
+    </article>
+    <article class="team-card">
+      <img src="https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?q=80&w=800&auto=format&fit=crop" alt="Майстер грумінгу Олег">
+      <div class="team-overlay">
+        <h3>Олег Стасюк</h3>
+        <p>SPA та вичісування</p>
+      </div>
+    </article>
+    <article class="team-card">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Майстриня грумінгу Аліна">
+      <div class="team-overlay">
+        <h3>Аліна Петренко</h3>
+        <p>Породні стрижки</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <div class="section-head">
+    <p class="eyebrow"><span></span>До / Після · Відгуки<span></span></p>
+    <h2 class="section-title">Результат, <em>що говорить сам</em></h2>
+  </div>
+
+  <div class="reviews-grid">
+    <article class="review-card">
+      <div class="split-photo">
+        <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?q=80&w=600&auto=format&fit=crop" alt="До грумінгу">
+        <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=600&auto=format&fit=crop" alt="Після грумінгу">
+        <span class="split-line" aria-hidden="true"></span>
+        <span class="split-tag left">До</span>
+        <span class="split-tag right">Після</span>
+      </div>
+      <div class="review-body">
+        <div class="stars">★★★★★</div>
+        <p>«Мій британець ненавидів купання, поки не потрапив до БЛЕКУСЕМ. Тепер сам біжить у переноску в день візиту!»</p>
+        <span class="review-author">— Юлія, клієнтка</span>
+      </div>
+    </article>
+
+    <article class="review-card">
+      <div class="split-photo">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902861a?q=80&w=600&auto=format&fit=crop" alt="До грумінгу">
+        <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=600&auto=format&fit=crop" alt="Після грумінгу">
+        <span class="split-line" aria-hidden="true"></span>
+        <span class="split-tag left">До</span>
+        <span class="split-tag right">Після</span>
+      </div>
+      <div class="review-body">
+        <div class="stars">★★★★★</div>
+        <p>«Ковтуни, з якими не могли впоратись роками, зняли за одну процедуру — акуратно і без стресу для кота.»</p>
+        <span class="review-author">— Дмитро, клієнт</span>
+      </div>
+    </article>
+
+    <article class="review-card">
+      <div class="split-photo">
+        <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?q=80&w=600&auto=format&fit=crop" alt="До грумінгу">
+        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=600&auto=format&fit=crop" alt="Після грумінгу">
+        <span class="split-line" aria-hidden="true"></span>
+        <span class="split-tag left">До</span>
+        <span class="split-tag right">Після</span>
+      </div>
+      <div class="review-body">
+        <div class="stars">★★★★★</div>
+        <p>«Найкращий SPA-догляд у місті. Хутро м'яке ще два тижні після візиту. Записуюсь щомісяця.»</p>
+        <span class="review-author">— Олена, клієнтка</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ MAP / CONTACTS ============ -->
+<section class="map-section" id="contacts">
+  <div class="map-info">
+    <p class="eyebrow"><span></span>Як нас знайти<span></span></p>
+    <h2 class="section-title">Чекаємо <em>на вас і вашого улюбленця</em></h2>
+    <dl class="info-list">
+      <div class="info-row">
+        <dt>📍 Адреса</dt>
+        <dd>м. Хмельницький, вул. Тернопільська, 13</dd>
+      </div>
+      <div class="info-row">
+        <dt>🕒 Графік</dt>
+        <dd>Пн–Сб 9:00–19:00, Нд вихідний</dd>
+      </div>
+      <div class="info-row">
+        <dt>🚗 Парковка</dt>
+        <dd>Безкоштовна парковка біля входу</dd>
+      </div>
+      <div class="info-row">
+        <dt>💬 Соцмережі</dt>
+        <dd>
+          <a href="#">Instagram</a> · <a href="#">Telegram</a> · <a href="#">TikTok</a>
+        </dd>
+      </div>
+    </dl>
+    <a href="#booking" class="btn btn-outline-dark">Записатись на прийом</a>
+  </div>
+  <div class="map-embed">
+    <iframe
+      src="https://www.google.com/maps?q=Хмельницький,+вул.+Тернопільська,+13&output=embed"
+      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" title="Карта БЛЕКУСЕМ">
+    </iframe>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section class="booking" id="booking">
+  <div class="booking-info">
+    <p class="eyebrow eyebrow-light"><span></span>Запис на процедуру<span></span></p>
+    <h2 class="section-title section-title--light">Довірте улюбленця <em>турботливим лапам</em></h2>
+    <ul class="booking-perks">
+      <li><span class="check">✓</span> Без клітин, без седації, без поспіху</li>
+      <li><span class="check">✓</span> Гіпоалергенна косметика преміум-класу</li>
+      <li><span class="check">✓</span> Сертифіковані грумери з досвідом 8+ років</li>
+      <li><span class="check">✓</span> Підтвердження запису у Telegram протягом 15 хв</li>
+    </ul>
+  </div>
+
+  <form class="booking-form" id="bookingForm" novalidate>
+    <div class="form-row">
+      <label for="name">Ім'я <span class="req">*</span></label>
+      <input type="text" id="name" name="name" placeholder="Ваше ім'я" required>
+      <span class="error-msg" id="nameError"></span>
+    </div>
+
+    <div class="form-row">
+      <label for="phone">Телефон або Telegram <span class="req">*</span></label>
+      <input type="text" id="phone" name="phone" placeholder="+380 XX XXX XX XX або @username" required>
+      <span class="error-msg" id="phoneError"></span>
+    </div>
+
+    <div class="form-row">
+      <label for="service">Послуга <span class="req">*</span></label>
+      <select id="service" name="service" required>
+        <option value="" disabled selected>Оберіть послугу</option>
+        <option value="Купання та сушка">Купання та сушка — від 350₴</option>
+        <option value="Стрижки">Стрижки — від 400₴</option>
+        <option value="SPA-догляд">SPA-догляд — від 500₴</option>
+        <option value="Вичісування ковтунів">Вичісування ковтунів — від 300₴</option>
+        <option value="Лапікюр">Лапікюр — від 150₴</option>
+        <option value="Експрес линька">Експрес линька — від 400₴</option>
+      </select>
+      <span class="error-msg" id="serviceError"></span>
+    </div>
+
+    <div class="form-row">
+      <label for="breed">Порода тварини</label>
+      <input type="text" id="breed" name="breed" placeholder="Напр. британська короткошерста">
+    </div>
+
+    <div class="form-row">
+      <label for="notes">Побажання</label>
+      <textarea id="notes" name="notes" rows="3" placeholder="Розкажіть про особливості вашого улюбленця"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-gold btn-lg btn-block">Надіслати заявку</button>
+    <p class="form-note" id="formNote"></p>
+  </form>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <a href="#top" class="logo logo--footer">
+    <span class="logo-mark" aria-hidden="true">🐾</span>
+    <span class="logo-text">БЛЕКУСЕМ</span>
+  </a>
+  <nav class="footer-nav">
+    <a href="#services">Послуги</a>
+    <a href="#about">Про нас</a>
+    <a href="#reviews">Відгуки</a>
+    <a href="#contacts">Контакти</a>
+  </nav>
+  <p class="footer-copy">© 2026 БЛЕКУСЕМ. Грумінг-салон у Хмельницькому. Всі права захищені.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
