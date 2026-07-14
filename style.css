@@ -731,7 +731,7 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; }
   position: absolute;
   left: 0;
   right: 0;
-  top: -0.9em;
+  top: -0.4em;
   z-index: 0;
   display: block;
   font-family: var(--serif);
@@ -1201,7 +1201,7 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; }
      doesn't care how many rows follow) */
   .team-list { grid-template-columns: repeat(3, 1fr); }
   .team-single { max-width: none; margin: 0; }
-  .team-bigname { top: -1em; }
+  .team-bigname { top: -0.5em; }
 }
 
 @media (max-width: 959px) {
