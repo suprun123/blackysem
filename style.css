@@ -700,56 +700,49 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; }
    TEAM
    ================================================================= */
 
-.team { padding: 100px 0 130px; overflow: hidden; }
+.team { padding: 100px 0 110px; }
 
-/* wraps one-or-many spotlight cards: a single master stays centered and
-   large; adding more via the CMS lays them out side by side and shrinks
-   each one so they still fit */
+/* one grid holds every master card PLUS a single shared "Майстри"
+   heading as a full-width row among them. `order` (below) decides
+   where that row falls: after the 3rd card on desktop, after the 1st
+   on mobile — any further masters simply continue the grid beneath it,
+   so nothing is ever duplicated no matter how many cards exist */
 .team-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 56px 32px;
   margin: 64px auto 0;
   max-width: var(--container);
-}
-
-/* single spotlight card: a giant name sits behind the photo, its lower
-   half spilling out below the frame — the photo covers the rest */
-.team-single {
-  position: relative;
-  width: 100%;
-  max-width: 560px;
-  margin: 0;
   padding: 0 var(--gutter);
 }
 
-/* when there's more than one master, each card gets its own column
-   instead of stacking full-width */
-.team-list:has(.team-single ~ .team-single) .team-single {
+.team-single {
+  width: 100%;
   max-width: 380px;
-  flex: 1 1 300px;
+  margin: 0 auto;
 }
 
+/* single shared heading — a real grid row, not per-card overlay text.
+   Cards carry order 0, 10, 20, 30... (set inline per card by JS); this
+   sits at 25 by default — strictly after the 3rd card (order 20) and
+   before the 4th (order 30) — so it drops onto its own row there, and
+   any further masters continue the grid beneath it. */
 .team-bigname {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.56em;
-  z-index: 0;
+  grid-column: 1 / -1;
+  order: 25;
+  display: block;
   font-family: var(--serif);
-  font-size: clamp(56px, 13vw, 130px);
+  font-size: clamp(48px, 10vw, 96px);
   line-height: 1;
   text-align: center;
   color: var(--pink-dark);
   opacity: 0.9;
-  pointer-events: none;
   user-select: none;
 }
 
 .team-photo-frame {
   position: relative;
-  z-index: 1;
   aspect-ratio: 3/4;
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(58,20,32,0.16);
@@ -1199,6 +1192,11 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; }
   .mosaic-item:nth-child(6) { grid-row: span 2; }
 
   .philosophy { grid-template-columns: 1.1fr 0.9fr; }
+
+  /* 3 masters per row max; the shared heading breaks its own row after
+     the 3rd (see the order values set on .team-single / .team-bigname) */
+  .team-list { grid-template-columns: repeat(3, 1fr); }
+  .team-single { max-width: none; margin: 0; }
 }
 
 @media (max-width: 959px) {
@@ -1206,6 +1204,9 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; }
   .burger { display: flex; }
   .site-header { padding: 14px var(--gutter); }
   .logo img { height: 42px; }
+  /* one master per screen; the shared heading sits right after the
+     first card (order 0) and strictly before the second (order 10) */
+  .team-bigname { order: 5; }
 }
 
 /* ==== MOBILE / TABLET HERO (< 960px) — its own single-column layout,

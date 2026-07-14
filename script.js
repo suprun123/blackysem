@@ -495,11 +495,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const list = document.getElementById('teamList');
     if (!list || !data?.items?.length) return;
 
-    const heading = data.items.length > 1 ? 'Майстри' : (data.items[0].name.split(' ')[0] || 'Майстри');
-
-    list.innerHTML = data.items.map((member) => `
-      <div class="team-single">
-        <span class="team-bigname" aria-hidden="true">${escapeHTML(heading)}</span>
+    // one shared heading (never per-card); `order` gaps of 10 leave room
+    // for the CSS to drop the heading in at exactly the right spot
+    // (see .team-bigname's order in style.css)
+    const cards = data.items.map((member, i) => `
+      <div class="team-single" style="order:${i * 10}">
         <div class="team-photo-frame">
           <img src="${escapeHTML(member.photo)}" alt="${escapeHTML(member.name)} — ${escapeHTML(member.role)}, БЛЕКУСЕМ">
           <span class="team-badge">
@@ -509,6 +509,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     `).join('');
+
+    list.innerHTML = `${cards}<span class="team-bigname" aria-hidden="true">Майстри</span>`;
   }
 
   function renderGallery(data) {

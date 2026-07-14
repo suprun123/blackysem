@@ -267,7 +267,6 @@
 
   <div class="team-list" id="teamList">
     <div class="team-single">
-      <span class="team-bigname" aria-hidden="true">Майстри</span>
       <div class="team-photo-frame">
         <img src="assets/team-maryna.webp" alt="Марина Ковальчук — засновниця та грумер-стиліст салону БЛЕКУСЕМ">
         <span class="team-badge">
@@ -276,6 +275,10 @@
         </span>
       </div>
     </div>
+    <!-- one shared heading, not one per card — CSS `order` (below) drops
+         it into its own row after the 3rd master on desktop / the 1st
+         on mobile, and any further masters continue the grid beneath it -->
+    <span class="team-bigname" aria-hidden="true">Майстри</span>
   </div>
 </section>
 
