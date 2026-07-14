@@ -475,5 +475,22 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="script.js"></script>
+
+<!-- Netlify Identity invite/recovery/confirmation links land on the site
+     root with a #token in the URL — this widget is what actually reads
+     that token and pops the "set your password" form. Without it here,
+     the link just opens the homepage and does nothing. -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on('init', (user) => {
+      if (!user) {
+        window.netlifyIdentity.on('login', () => {
+          document.location.href = '/admin/';
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
