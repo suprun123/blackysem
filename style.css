@@ -712,7 +712,9 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; }
   grid-template-columns: 1fr;
   align-items: start;
   gap: 32px;
-  margin: 96px auto 0;
+  /* extra clearance above the cards so the bigger heading has room to
+     peek out before the cards start */
+  margin: 150px auto 0;
   max-width: var(--container);
   padding: 0 var(--gutter);
 }
@@ -729,15 +731,15 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; }
   position: absolute;
   left: 0;
   right: 0;
-  top: -0.4em;
+  top: -0.72em;
   z-index: 0;
   display: block;
   font-family: var(--serif);
-  font-size: clamp(48px, 10vw, 96px);
+  font-size: clamp(72px, 15vw, 160px);
   line-height: 1;
   text-align: center;
   color: var(--pink-dark);
-  opacity: 0.9;
+  opacity: 0.45;
   pointer-events: none;
   user-select: none;
 }
@@ -1199,7 +1201,7 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; }
      doesn't care how many rows follow) */
   .team-list { grid-template-columns: repeat(3, 1fr); }
   .team-single { max-width: none; margin: 0; }
-  .team-bigname { top: -0.5em; }
+  .team-bigname { top: -0.82em; }
 }
 
 @media (max-width: 959px) {
