@@ -14,7 +14,7 @@ collections:
     label: "Тексти сайту"
     files:
       - name: "site"
-        label: "Головна сторінка"
+        label: "Всі тексти по секціях"
         file: "content/site.json"
         fields:
           - label: "Головний екран (Hero)"
@@ -24,33 +24,17 @@ collections:
               - { label: "Лейбл над заголовком", name: "eyebrow", widget: "string" }
               - { label: "Заголовок, рядок 1", name: "titleLine1", widget: "string" }
               - { label: "Заголовок, рядок 2", name: "titleLine2", widget: "string" }
-              - { label: "Курсивне слово в кінці", name: "titleAccent", widget: "string" }
+              - { label: "Курсивне слово в кінці заголовка", name: "titleAccent", widget: "string" }
               - { label: "Підзаголовок", name: "subtitle", widget: "text" }
-          - label: "Цитата"
-            name: "quote"
-            widget: "object"
-            fields:
-              - { label: "Текст цитати", name: "text", widget: "text" }
-              - { label: "Автор", name: "author", widget: "string" }
-          - label: "Майстер (спотлайт)"
-            name: "team"
-            widget: "object"
-            fields:
-              - { label: "Ім'я", name: "name", widget: "string" }
-              - { label: "Посада", name: "role", widget: "string" }
-              - { label: "Фото", name: "photo", widget: "image" }
-          - label: "Контакти"
-            name: "contacts"
-            widget: "object"
-            fields:
-              - { label: "Адреса", name: "address", widget: "string" }
-              - { label: "Телефон (для показу)", name: "phone", widget: "string" }
-              - { label: "Телефон (для посилання tel:, без +)", name: "phoneHref", widget: "string" }
-              - { label: "Графік роботи", name: "schedule", widget: "string" }
-              - { label: "Парковка", name: "parking", widget: "string" }
-              - { label: "Instagram (посилання)", name: "instagram", widget: "string" }
-              - { label: "Telegram (посилання)", name: "telegram", widget: "string" }
-              - { label: "TikTok (посилання)", name: "tiktok", widget: "string" }
+              - label: "Переваги зліва (список)"
+                name: "perksLeft"
+                widget: "list"
+                field: { label: "Пункт", name: "item", widget: "string" }
+              - label: "Переваги справа (список)"
+                name: "perksRight"
+                widget: "list"
+                field: { label: "Пункт", name: "item", widget: "string" }
+
           - label: "Цифри-факти"
             name: "numbers"
             widget: "object"
@@ -63,6 +47,95 @@ collections:
               - { label: "Рекомендації — підпис", name: "recommendLabel", widget: "string" }
               - { label: "Послуги — число", name: "services", widget: "string" }
               - { label: "Послуги — підпис", name: "servicesLabel", widget: "string" }
+
+          - label: "Заголовок секції «Послуги»"
+            name: "servicesSection"
+            widget: "object"
+            fields:
+              - { label: "Лейбл", name: "eyebrow", widget: "string" }
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Курсивна частина заголовка", name: "titleAccent", widget: "string" }
+
+          - label: "Цитата"
+            name: "quote"
+            widget: "object"
+            fields:
+              - { label: "Текст цитати", name: "text", widget: "text" }
+              - { label: "Автор", name: "author", widget: "string" }
+
+          - label: "Заголовок секції «Instagram / Про нас»"
+            name: "gallerySection"
+            widget: "object"
+            fields:
+              - { label: "Лейбл", name: "eyebrow", widget: "string" }
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Курсивна частина заголовка", name: "titleAccent", widget: "string" }
+
+          - label: "Наша філософія"
+            name: "philosophy"
+            widget: "object"
+            fields:
+              - { label: "Лейбл", name: "eyebrow", widget: "string" }
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Курсивна частина заголовка", name: "titleAccent", widget: "string" }
+              - { label: "Текст", name: "body", widget: "text" }
+              - { label: "Фото поруч з текстом", name: "photo", widget: "image" }
+
+          - label: "Заголовок секції «Наші майстри»"
+            name: "teamSection"
+            widget: "object"
+            fields:
+              - { label: "Лейбл", name: "eyebrow", widget: "string" }
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Курсивна частина заголовка", name: "titleAccent", widget: "string" }
+
+          - label: "Заголовок секції «Відгуки»"
+            name: "reviewsSection"
+            widget: "object"
+            fields:
+              - { label: "Лейбл", name: "eyebrow", widget: "string" }
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Курсивна частина заголовка", name: "titleAccent", widget: "string" }
+
+          - label: "Заголовок секції «Карта»"
+            name: "mapSection"
+            widget: "object"
+            fields:
+              - { label: "Лейбл", name: "eyebrow", widget: "string" }
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Курсивна частина заголовка", name: "titleAccent", widget: "string" }
+
+          - label: "Форма запису"
+            name: "bookingSection"
+            widget: "object"
+            fields:
+              - { label: "Лейбл", name: "eyebrow", widget: "string" }
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Курсивна частина заголовка", name: "titleAccent", widget: "string" }
+              - label: "Переваги (список з галочками)"
+                name: "perks"
+                widget: "list"
+                field: { label: "Пункт", name: "item", widget: "string" }
+
+          - label: "Футер"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Слоган", name: "slogan", widget: "string" }
+              - { label: "Курсивна частина слогана", name: "sloganAccent", widget: "string" }
+
+          - label: "Контакти"
+            name: "contacts"
+            widget: "object"
+            fields:
+              - { label: "Адреса", name: "address", widget: "string" }
+              - { label: "Телефон (для показу)", name: "phone", widget: "string" }
+              - { label: "Телефон (для посилання tel:, без +)", name: "phoneHref", widget: "string" }
+              - { label: "Графік роботи", name: "schedule", widget: "string" }
+              - { label: "Парковка", name: "parking", widget: "string" }
+              - { label: "Instagram (посилання)", name: "instagram", widget: "string" }
+              - { label: "Telegram (посилання)", name: "telegram", widget: "string" }
+              - { label: "TikTok (посилання)", name: "tiktok", widget: "string" }
 
   - name: "services"
     label: "Послуги та прайс"
@@ -100,3 +173,35 @@ collections:
               - { label: "Кількість зірок", name: "stars", widget: "number", default: 5, min: 1, max: 5 }
               - { label: "Текст відгуку", name: "text", widget: "text" }
               - { label: "Автор", name: "author", widget: "string" }
+
+  - name: "team"
+    label: "Наші майстри"
+    files:
+      - name: "team"
+        label: "Список майстрів"
+        file: "content/team.json"
+        fields:
+          - label: "Майстри"
+            name: "items"
+            widget: "list"
+            summary: "{{name}} — {{role}}"
+            fields:
+              - { label: "Ім'я", name: "name", widget: "string" }
+              - { label: "Посада", name: "role", widget: "string" }
+              - { label: "Фото", name: "photo", widget: "image" }
+
+  - name: "gallery"
+    label: "Фото-галерея (Instagram)"
+    files:
+      - name: "gallery"
+        label: "Фото галереї"
+        file: "content/gallery.json"
+        fields:
+          - label: "Фото"
+            name: "items"
+            widget: "list"
+            summary: "{{caption}}"
+            fields:
+              - { label: "Фото", name: "image", widget: "image" }
+              - { label: "Опис фото (для скрінрідерів)", name: "alt", widget: "string" }
+              - { label: "Підпис на фото (при наведенні)", name: "caption", widget: "string" }

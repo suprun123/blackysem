@@ -58,14 +58,14 @@
   </div>
 
   <div class="hero-bottom">
-    <ul class="hero-col hero-col-left">
+    <ul class="hero-col hero-col-left" id="heroPerksLeft">
       <li>Індивідуальний підхід до кожної тварини</li>
       <li>Без клітки, без седації, без поспіху</li>
     </ul>
     <div class="hero-col hero-col-center">
       <a href="#booking" class="btn btn-gold btn-lg">Записатись на прийом</a>
     </div>
-    <ul class="hero-col hero-col-right">
+    <ul class="hero-col hero-col-right" id="heroPerksRight">
       <li>Сертифіковані грумери з досвідом 8+ років</li>
       <li>Гіпоалергенна косметика преміум-класу</li>
     </ul>
@@ -214,7 +214,7 @@
     <h2 class="section-title">Живемо <em>у деталях</em></h2>
   </div>
 
-  <div class="mosaic">
+  <div class="mosaic" id="mosaicGrid">
     <div class="mosaic-item">
       <img src="assets/mosaic-grooming.jpg" alt="Грумер розчісує чорного кота з рожевим бантиком">
       <div class="mosaic-overlay"><span>Спокій під час процедури</span></div>
@@ -245,11 +245,11 @@
     <div class="philosophy-text">
       <p class="eyebrow eyebrow-light"><span></span>Наша філософія<span></span></p>
       <h2 class="section-title section-title--light">Кожна тварина заслуговує <em>дбайливих лап</em></h2>
-      <p class="philosophy-body">БЛЕКУСЕМ народився з любові до однієї чорної кішки з рожевим бантиком, яка й досі сидить на нашому кулоні-логотипі. Ми будуємо салон, де немає клітин і поспіху — тільки терпіння, професійна косметика та щира турбота про кожного пухнастого гостя.</p>
+      <p class="philosophy-body" id="philosophyBody">БЛЕКУСЕМ народився з любові до однієї чорної кішки з рожевим бантиком, яка й досі сидить на нашому кулоні-логотипі. Ми будуємо салон, де немає клітин і поспіху — тільки терпіння, професійна косметика та щира турбота про кожного пухнастого гостя.</p>
       <div class="social-links">
-        <a href="#" class="social-link">Instagram</a>
-        <a href="#" class="social-link">Telegram</a>
-        <a href="#" class="social-link">TikTok</a>
+        <a href="#" class="social-link" data-social="instagram">Instagram</a>
+        <a href="#" class="social-link" data-social="telegram">Telegram</a>
+        <a href="#" class="social-link" data-social="tiktok">TikTok</a>
       </div>
     </div>
     <div class="philosophy-photo">
@@ -265,14 +265,16 @@
     <h2 class="section-title">Руки, яким <em>довіряють</em></h2>
   </div>
 
-  <div class="team-single">
-    <span class="team-bigname" aria-hidden="true">Майстри</span>
-    <div class="team-photo-frame">
-      <img src="assets/team-maryna.webp" alt="Марина Ковальчук — засновниця та грумер-стиліст салону БЛЕКУСЕМ">
-      <span class="team-badge">
-        <strong>Марина Ковальчук</strong>
-        <span>Засновниця · грумер-стиліст</span>
-      </span>
+  <div class="team-list" id="teamList">
+    <div class="team-single">
+      <span class="team-bigname" aria-hidden="true">Майстри</span>
+      <div class="team-photo-frame">
+        <img src="assets/team-maryna.webp" alt="Марина Ковальчук — засновниця та грумер-стиліст салону БЛЕКУСЕМ">
+        <span class="team-badge">
+          <strong>Марина Ковальчук</strong>
+          <span>Засновниця · грумер-стиліст</span>
+        </span>
+      </div>
     </div>
   </div>
 </section>
@@ -384,7 +386,7 @@
   <div class="booking-info">
     <p class="eyebrow eyebrow-light"><span></span>Запис на процедуру<span></span></p>
     <h2 class="section-title section-title--light">Довірте улюбленця <em>турботливим лапам</em></h2>
-    <ul class="booking-perks">
+    <ul class="booking-perks" id="bookingPerks">
       <li><span class="check">✓</span> Без клітин, без седації, без поспіху</li>
       <li><span class="check">✓</span> Гіпоалергенна косметика преміум-класу</li>
       <li><span class="check">✓</span> Сертифіковані грумери з досвідом 8+ років</li>
@@ -459,13 +461,13 @@
       <a href="#booking">Записатись</a>
     </nav>
     <div class="footer-contacts">
-      <p>м. Хмельницький,<br>вул. Тернопільська, 13</p>
+      <p id="footerAddress">м. Хмельницький,<br>вул. Тернопільська, 13</p>
       <p><a href="tel:+380963518675">096 351 86 75</a></p>
-      <p>Пн–Сб 9:00–19:00 · Нд вихідний</p>
+      <p id="footerSchedule">Пн–Сб 9:00–19:00 · Нд вихідний</p>
       <div class="social-links">
-        <a href="#" class="social-link">Instagram</a>
-        <a href="#" class="social-link">Telegram</a>
-        <a href="#" class="social-link">TikTok</a>
+        <a href="#" class="social-link" data-social="instagram">Instagram</a>
+        <a href="#" class="social-link" data-social="telegram">Telegram</a>
+        <a href="#" class="social-link" data-social="tiktok">TikTok</a>
       </div>
     </div>
   </div>

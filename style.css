@@ -702,13 +702,33 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; }
 
 .team { padding: 100px 0 130px; overflow: hidden; }
 
+/* wraps one-or-many spotlight cards: a single master stays centered and
+   large; adding more via the CMS lays them out side by side and shrinks
+   each one so they still fit */
+.team-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 48px;
+  margin: 64px auto 0;
+  max-width: var(--container);
+}
+
 /* single spotlight card: a giant name sits behind the photo, its lower
    half spilling out below the frame — the photo covers the rest */
 .team-single {
   position: relative;
+  width: 100%;
   max-width: 560px;
-  margin: 64px auto 0;
+  margin: 0;
   padding: 0 var(--gutter);
+}
+
+/* when there's more than one master, each card gets its own column
+   instead of stacking full-width */
+.team-list:has(.team-single ~ .team-single) .team-single {
+  max-width: 380px;
+  flex: 1 1 300px;
 }
 
 .team-bigname {

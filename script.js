@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------------- service picker: chips + hidden select ---------------- */
   const serviceSelect = document.getElementById('service');
-  const serviceChips = [...document.querySelectorAll('.service-chip')];
+  let serviceChips = [];
 
   const setService = (value) => {
     if (!serviceSelect) return;
@@ -38,9 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  serviceChips.forEach((chip) => {
-    chip.addEventListener('click', () => setService(chip.dataset.value));
-  });
+  // re-run after CMS content rebuilds the chip markup (renderServices),
+  // so the new chips get the same click behaviour as the static ones
+  function bindServiceChips() {
+    serviceChips = [...document.querySelectorAll('.service-chip')];
+    serviceChips.forEach((chip) => {
+      chip.addEventListener('click', () => setService(chip.dataset.value));
+    });
+  }
+  bindServiceChips();
 
   // re-run after CMS content rebuilds the service cards, so new buttons
   // get the same prefill-and-scroll behaviour as the static ones
@@ -347,6 +353,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // fills the `<span></span>TEXT<span></span>` eyebrow (keeping the two
+  // decorative line spans intact) and the "Plain <em>Accent</em>" title
+  // inside whatever root element is passed in
+  function setEyebrowTitle(root, eyebrowText, titlePlain, titleAccent) {
+    if (!root) return;
+    const eyebrow = root.querySelector('.eyebrow');
+    const title = root.querySelector('.section-title');
+    if (eyebrow && eyebrowText) {
+      eyebrow.innerHTML = `<span></span>${escapeHTML(eyebrowText)}<span></span>`;
+    }
+    if (title && (titlePlain || titleAccent)) {
+      title.innerHTML = `${escapeHTML(titlePlain)} <em>${escapeHTML(titleAccent)}</em>`;
+    }
+  }
+
+  function setList(listEl, items) {
+    if (!listEl || !items?.length) return;
+    const hasCheck = listEl.classList.contains('booking-perks');
+    listEl.innerHTML = items
+      .map((text) => (hasCheck
+        ? `<li><span class="check">✓</span> ${escapeHTML(text)}</li>`
+        : `<li>${escapeHTML(text)}</li>`))
+      .join('');
+  }
+
   function renderSiteTexts(site) {
     if (!site) return;
 
@@ -362,38 +393,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const sub = document.querySelector('.hero-sub');
       if (sub && site.hero.subtitle) sub.textContent = site.hero.subtitle;
-    }
 
-    if (site.quote) {
-      const quoteText = document.querySelector('.quote-text');
-      const quoteAuthor = document.querySelector('.quote-author');
-      if (quoteText && site.quote.text) quoteText.textContent = site.quote.text;
-      if (quoteAuthor && site.quote.author) quoteAuthor.textContent = site.quote.author;
-    }
-
-    if (site.team) {
-      const bigname = document.querySelector('.team-bigname');
-      const badgeName = document.querySelector('.team-badge strong');
-      const badgeRole = document.querySelector('.team-badge span');
-      const photo = document.querySelector('.team-photo-frame img');
-      if (badgeName && site.team.name) badgeName.textContent = site.team.name;
-      if (badgeRole && site.team.role) badgeRole.textContent = site.team.role;
-      if (photo && site.team.photo) photo.src = site.team.photo;
-      if (bigname) void bigname; // name kept as "Майстри" heading by design
-    }
-
-    if (site.contacts) {
-      const c = site.contacts;
-      document.querySelectorAll('a[href^="tel:"]').forEach((a) => {
-        if (c.phoneHref) a.href = `tel:+${c.phoneHref.replace(/\D/g, '')}`;
-        if (c.phone) a.textContent = c.phone;
-      });
-      const address = document.getElementById('cmsAddress');
-      const schedule = document.getElementById('cmsSchedule');
-      const parking = document.getElementById('cmsParking');
-      if (address && c.address) address.textContent = c.address;
-      if (schedule && c.schedule) schedule.textContent = c.schedule;
-      if (parking && c.parking) parking.textContent = c.parking;
+      setList(document.getElementById('heroPerksLeft'), site.hero.perksLeft);
+      setList(document.getElementById('heroPerksRight'), site.hero.perksRight);
     }
 
     if (site.numbers) {
@@ -408,6 +410,117 @@ document.addEventListener('DOMContentLoaded', () => {
         if (label && site.numbers[`${key}Label`]) label.textContent = site.numbers[`${key}Label`];
       });
     }
+
+    if (site.servicesSection) {
+      const s = site.servicesSection;
+      setEyebrowTitle(document.querySelector('.services .section-head'), s.eyebrow, s.title, s.titleAccent);
+    }
+
+    if (site.quote) {
+      const quoteText = document.querySelector('.quote-text');
+      const quoteAuthor = document.querySelector('.quote-author');
+      if (quoteText && site.quote.text) quoteText.textContent = site.quote.text;
+      if (quoteAuthor && site.quote.author) quoteAuthor.textContent = site.quote.author;
+    }
+
+    if (site.gallerySection) {
+      const g = site.gallerySection;
+      setEyebrowTitle(document.querySelector('.about > .section-head'), g.eyebrow, g.title, g.titleAccent);
+    }
+
+    if (site.philosophy) {
+      const p = site.philosophy;
+      setEyebrowTitle(document.querySelector('.philosophy-text'), p.eyebrow, p.title, p.titleAccent);
+      const body = document.getElementById('philosophyBody');
+      const photo = document.querySelector('.philosophy-photo img');
+      if (body && p.body) body.textContent = p.body;
+      if (photo && p.photo) photo.src = p.photo;
+    }
+
+    if (site.teamSection) {
+      const t = site.teamSection;
+      setEyebrowTitle(document.querySelector('.team .section-head'), t.eyebrow, t.title, t.titleAccent);
+    }
+
+    if (site.reviewsSection) {
+      const r = site.reviewsSection;
+      setEyebrowTitle(document.querySelector('.reviews .section-head'), r.eyebrow, r.title, r.titleAccent);
+    }
+
+    if (site.mapSection) {
+      const m = site.mapSection;
+      setEyebrowTitle(document.querySelector('.map-info'), m.eyebrow, m.title, m.titleAccent);
+    }
+
+    if (site.bookingSection) {
+      const b = site.bookingSection;
+      setEyebrowTitle(document.querySelector('.booking-info'), b.eyebrow, b.title, b.titleAccent);
+      setList(document.getElementById('bookingPerks'), b.perks);
+    }
+
+    if (site.footer) {
+      const slogan = document.querySelector('.footer-slogan');
+      if (slogan && (site.footer.slogan || site.footer.sloganAccent)) {
+        slogan.innerHTML = `${escapeHTML(site.footer.slogan)} <em>${escapeHTML(site.footer.sloganAccent)}</em>`;
+      }
+    }
+
+    if (site.contacts) {
+      const c = site.contacts;
+      document.querySelectorAll('a[href^="tel:"]').forEach((a) => {
+        if (c.phoneHref) a.href = `tel:+${c.phoneHref.replace(/\D/g, '')}`;
+        if (c.phone) a.textContent = c.phone;
+      });
+      const address = document.getElementById('cmsAddress');
+      const schedule = document.getElementById('cmsSchedule');
+      const parking = document.getElementById('cmsParking');
+      if (address && c.address) address.textContent = c.address;
+      if (schedule && c.schedule) schedule.textContent = c.schedule;
+      if (parking && c.parking) parking.textContent = c.parking;
+
+      const footerAddress = document.getElementById('footerAddress');
+      const footerSchedule = document.getElementById('footerSchedule');
+      if (footerAddress && c.address) footerAddress.textContent = c.address;
+      if (footerSchedule && c.schedule) footerSchedule.textContent = c.schedule;
+
+      const socialMap = { instagram: c.instagram, telegram: c.telegram, tiktok: c.tiktok };
+      Object.entries(socialMap).forEach(([key, href]) => {
+        if (!href) return;
+        document.querySelectorAll(`[data-social="${key}"]`).forEach((a) => { a.href = href; });
+      });
+    }
+  }
+
+  function renderTeam(data) {
+    const list = document.getElementById('teamList');
+    if (!list || !data?.items?.length) return;
+
+    const heading = data.items.length > 1 ? 'Майстри' : (data.items[0].name.split(' ')[0] || 'Майстри');
+
+    list.innerHTML = data.items.map((member) => `
+      <div class="team-single">
+        <span class="team-bigname" aria-hidden="true">${escapeHTML(heading)}</span>
+        <div class="team-photo-frame">
+          <img src="${escapeHTML(member.photo)}" alt="${escapeHTML(member.name)} — ${escapeHTML(member.role)}, БЛЕКУСЕМ">
+          <span class="team-badge">
+            <strong>${escapeHTML(member.name)}</strong>
+            <span>${escapeHTML(member.role)}</span>
+          </span>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderGallery(data) {
+    const grid = document.getElementById('mosaicGrid');
+    if (!grid || !data?.items?.length) return;
+
+    grid.innerHTML = data.items.map((tile) => `
+      <div class="mosaic-item">
+        <img src="${escapeHTML(tile.image)}" alt="${escapeHTML(tile.alt)}">
+        <div class="mosaic-overlay"><span>${escapeHTML(tile.caption)}</span></div>
+      </div>
+    `).join('');
   }
 
   function renderServices(data) {
@@ -432,6 +545,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }).join('');
 
     bindServiceArrows();
+
+    // keep the booking form's chip picker in sync with whatever
+    // services the client has in the CMS, so they're never two
+    // separately-maintained lists
+    const chipsContainer = document.querySelector('.service-chips');
+    if (chipsContainer) {
+      chipsContainer.innerHTML = data.items.map((service) => `
+        <button type="button" class="service-chip" data-value="${escapeHTML(service.name)}" aria-pressed="false">${escapeHTML(service.name)}</button>
+      `).join('');
+
+      const select = document.getElementById('service');
+      if (select) {
+        const placeholder = select.querySelector('option[value=""]');
+        select.innerHTML = '';
+        if (placeholder) select.appendChild(placeholder);
+        data.items.forEach((service) => {
+          const opt = document.createElement('option');
+          opt.value = service.name;
+          opt.textContent = `${service.name} — ${service.price}`;
+          select.appendChild(opt);
+        });
+      }
+
+      bindServiceChips();
+    }
   }
 
   function renderReviews(data) {
@@ -459,14 +597,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   (async function initCMSContent() {
-    const [site, services, reviews] = await Promise.all([
+    const [site, services, reviews, team, gallery] = await Promise.all([
       fetchJSON('content/site.json'),
       fetchJSON('content/services.json'),
       fetchJSON('content/reviews.json'),
+      fetchJSON('content/team.json'),
+      fetchJSON('content/gallery.json'),
     ]);
     renderSiteTexts(site);
     renderServices(services);
     renderReviews(reviews);
+    renderTeam(team);
+    renderGallery(gallery);
+
+    // renderServices just rebuilt the <select>/chips from scratch, which
+    // would silently drop a service chosen via ?service=... before the
+    // CMS fetch resolved — reapply it now that the options exist again
+    if (preselected) setService(preselected);
   })();
 
 });
