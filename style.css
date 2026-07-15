@@ -706,11 +706,15 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; }
    the top edge of the cards — never duplicated, never per-card. The
    cards sit on top (z-index) and overlap its lower half a little;
    its upper half peeks out above them. */
+/* flexbox + wrap + justify-content:center — not a fixed-column grid —
+   so any number of cards stays centered: 1 alone, 2 side by side, 3
+   across, a 4th wraps to its own centered row below, and so on */
 .team-list {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   gap: 32px;
   /* extra clearance above the cards so the bigger heading has room to
      peek out before the cards start */
@@ -1199,8 +1203,10 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; }
   /* 3 masters per row max; the shared heading floats behind whichever
      cards occupy the first row (it's absolutely positioned, so it
      doesn't care how many rows follow) */
-  .team-list { grid-template-columns: repeat(3, 1fr); }
-  .team-single { max-width: none; margin: 0; }
+  /* fixed basis sized so exactly 3 fit per row (container minus 2 gaps,
+     divided by 3); fewer cards just center with room to spare, a 4th+
+     wraps to a new centered row */
+  .team-single { flex: 0 0 calc((100% - 64px) / 3); max-width: 380px; margin: 0; }
   .team-bigname { top: -0.8em; }
 }
 
