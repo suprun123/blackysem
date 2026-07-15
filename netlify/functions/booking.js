@@ -46,11 +46,12 @@ exports.handler = async (event) => {
     });
 
     if (!res.ok) {
-      return { statusCode: 502, body: 'Telegram API error' };
+      const detail = await res.text();
+      return { statusCode: 502, body: `Telegram API error: ${detail}` };
     }
 
     return { statusCode: 200, body: JSON.stringify({ ok: true }) };
-  } catch {
-    return { statusCode: 502, body: 'Failed to reach Telegram' };
+  } catch (err) {
+    return { statusCode: 502, body: `Failed to reach Telegram: ${err.message}` };
   }
 };
