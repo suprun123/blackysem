@@ -127,27 +127,27 @@ document.addEventListener('DOMContentLoaded', () => {
         notes: document.getElementById('notes').value.trim(),
       };
 
-      // ---------------------------------------------------------------
-      // TODO: інтеграція з Telegram-ботом.
-      // Коли бот буде готовий, замінити блок нижче на запит виду:
-      //
-      // fetch('https://api.telegram.org/bot<BOT_TOKEN>/sendMessage', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({
-      //     chat_id: '<CHAT_ID>',
-      //     text: `Нова заявка: ${data.name}, ${data.phone}, ${data.service}`
-      //   })
-      // });
-      //
-      // або відправити data на власний backend-ендпоінт, який вже
-      // передасть заявку в Telegram-бот.
-      // ---------------------------------------------------------------
-      console.log('Заявка на запис:', data);
+      const submitBtn = form.querySelector('[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
 
-      formNote.textContent = 'Дякуємо! Ваша заявка надіслана, ми зв’яжемось з вами найближчим часом.';
-      formNote.style.color = '#3A1420';
-      form.reset();
+      fetch('/.netlify/functions/booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error('bad response');
+          formNote.textContent = 'Дякуємо! Ваша заявка надіслана, ми зв’яжемось з вами найближчим часом.';
+          formNote.style.color = '#3A1420';
+          form.reset();
+        })
+        .catch(() => {
+          formNote.textContent = 'Не вдалося надіслати заявку. Спробуйте, будь ласка, ще раз або зателефонуйте нам.';
+          formNote.style.color = '#C0334A';
+        })
+        .finally(() => {
+          if (submitBtn) submitBtn.disabled = false;
+        });
     });
   }
 
