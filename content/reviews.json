@@ -1,8 +1,8 @@
 {
   "items": [
     {
-      "beforeImage": "assets/ba1-before.webp",
-      "afterImage": "assets/ba1-after.webp",
+      "beforeImage": "assets/img_3702.jpeg",
+      "afterImage": "assets/img_3071.jpeg",
       "beforeAlt": "Сірий кіт із ковтунами до грумінгу",
       "afterAlt": "Той самий кіт після грумінгу — доглянута шерсть",
       "stars": 5,
@@ -10,19 +10,19 @@
       "author": "Юлія, клієнтка"
     },
     {
-      "beforeImage": "assets/ba2-before.webp",
-      "afterImage": "assets/ba2-after.webp",
+      "beforeImage": "assets/img_2249.jpeg",
+      "afterImage": "assets/img_2382.jpeg",
       "beforeAlt": "Білий перс із тьмяною шерстю до купання",
       "afterAlt": "Той самий перс після купання — білосніжна шерсть",
       "stars": 5,
-      "text": "Наш перс знову білосніжний! Мій кіт ненавидів купання, поки не потрапив у ці турботливі руки.",
+      "text": "Гарна стрижка для мого песика ",
       "author": "Дмитро, клієнт"
     },
     {
-      "beforeImage": "assets/ba3-before.webp",
-      "afterImage": "assets/ba3-after.webp",
+      "beforeImage": "assets/img_3706.jpeg",
+      "afterImage": "assets/img_2107.jpeg",
       "beforeAlt": "Рудий кіт з підшерстям, що линяє, до процедури",
-      "afterAlt": "Той самий кіт після експрес-линьки — гладенька шерсть",
+      "afterAlt": "Той самий песик після експрес-линьки — гладенька шерсть",
       "stars": 5,
       "text": "Після експрес-линьки вдома нарешті чисто — шерсті на диванах більше немає. Записуємось щомісяця!",
       "author": "Олена, клієнтка"
